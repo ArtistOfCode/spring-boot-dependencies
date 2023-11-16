@@ -18,13 +18,13 @@
 
     <properties>
         <!-- 码匠框架 -->
-        <spring-boot-autoconfigure.version>1.0.0-SNAPSHOT</spring-boot-autoconfigure.version>
-        <spring-boot-starter-core.version>1.0.0-SNAPSHOT</spring-boot-starter-core.version>
-        <spring-boot-starter-cache.version>1.0.0-SNAPSHOT</spring-boot-starter-cache.version>
-        <spring-boot-starter-mq.version>1.0.0-SNAPSHOT</spring-boot-starter-mq.version>
-        <spring-boot-starter-metric.version>1.0.0-SNAPSHOT</spring-boot-starter-metric.version>
-        <spring-boot-starter-web.version>1.0.0-SNAPSHOT</spring-boot-starter-web.version>
-        <spring-boot-starter-generator.version>1.0.0-SNAPSHOT</spring-boot-starter-generator.version>
+        <spring-boot-autoconfigure.version>1.0.1-SNAPSHOT</spring-boot-autoconfigure.version>
+        <spring-boot-starter-core.version>1.0.1-SNAPSHOT</spring-boot-starter-core.version>
+        <spring-boot-starter-cache.version>1.0.1-SNAPSHOT</spring-boot-starter-cache.version>
+        <spring-boot-starter-mq.version>1.0.1-SNAPSHOT</spring-boot-starter-mq.version>
+        <spring-boot-starter-metric.version>1.0.1-SNAPSHOT</spring-boot-starter-metric.version>
+        <spring-boot-starter-web.version>1.0.1-SNAPSHOT</spring-boot-starter-web.version>
+        <spring-boot-starter-generator.version>1.0.1-SNAPSHOT</spring-boot-starter-generator.version>
         <!-- 第三方框架 -->
         <spring-boot.version>2.7.17</spring-boot.version>
         <spring-cloud-dependencies.version>2021.0.8</spring-cloud-dependencies.version>
@@ -35,6 +35,9 @@
         <bcprov-jdk15to18.version>1.76</bcprov-jdk15to18.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <javafaker.version>1.0.2</javafaker.version>
+        <!-- 版本重置 -->
+        <h2.version>2.2.224</h2.version>
+        <snakeyaml.version>2.2</snakeyaml.version>
         <!--项目配置-->
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -136,11 +139,21 @@
         <!-- 资源插件 -->
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*</include>
-                </includes>
+                <directory>${basedir}/src/main/resources</directory>
                 <filtering>true</filtering>
+                <includes>
+                    <include>**/application*.yml</include>
+                    <include>**/application*.yaml</include>
+                    <include>**/application*.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <excludes>
+                    <exclude>**/application*.yml</exclude>
+                    <exclude>**/application*.yaml</exclude>
+                    <exclude>**/application*.properties</exclude>
+                </excludes>
             </resource>
         </resources>
         <plugins>
@@ -191,14 +204,11 @@
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
-                    <version>4.9.10</version>
                     <executions>
                         <execution>
-                            <id>get-the-git-info</id>
                             <goals>
                                 <goal>revision</goal>
                             </goals>
-                            <phase>initialize</phase>
                         </execution>
                     </executions>
                     <configuration>

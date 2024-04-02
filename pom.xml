@@ -20,6 +20,7 @@
         <!-- 码匠框架 -->
         <spring-boot-autoconfigure.version>1.0.1-SNAPSHOT</spring-boot-autoconfigure.version>
         <spring-boot-starter-core.version>1.0.1-SNAPSHOT</spring-boot-starter-core.version>
+        <spring-boot-starter-datasource.version>1.0.1-SNAPSHOT</spring-boot-starter-datasource.version>
         <spring-boot-starter-cache.version>1.0.1-SNAPSHOT</spring-boot-starter-cache.version>
         <spring-boot-starter-mq.version>1.0.1-SNAPSHOT</spring-boot-starter-mq.version>
         <spring-boot-starter-metric.version>1.0.1-SNAPSHOT</spring-boot-starter-metric.version>
@@ -56,6 +57,11 @@
                 <groupId>com.codeartist</groupId>
                 <artifactId>spring-boot-starter-core</artifactId>
                 <version>${spring-boot-starter-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.codeartist</groupId>
+                <artifactId>spring-boot-starter-datasource</artifactId>
+                <version>${spring-boot-starter-datasource.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.codeartist</groupId>

@@ -36,6 +36,7 @@
         <bcprov-jdk15to18.version>1.76</bcprov-jdk15to18.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <maven-surefire-report-plugin.version>3.2.5</maven-surefire-report-plugin.version>
+        <javafaker.version>1.0.2</javafaker.version>
         <!-- 版本重置 -->
         <h2.version>2.2.224</h2.version>
         <mysql.version>8.2.0</mysql.version>
@@ -144,6 +145,11 @@
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcprov-jdk15to18</artifactId>
                 <version>${bcprov-jdk15to18.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.javafaker</groupId>
+                <artifactId>javafaker</artifactId>
+                <version>${javafaker.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
